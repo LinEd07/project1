@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Bookpage
+{% endblock %}
+
+{% block body %}
+<div class=container>
+  <br><h3>Information about the book</h3><br>
+  <table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">Title</th>
+      <td>{{info.title}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Author</th>
+      <td>{{info.author}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Year</th>
+      <td>{{info.year}}</td>
+    </tr>
+    <tr>
+      <th scope="row">ISBN</th>
+      <td>{{info.isbn}}</td>
+    </tr><tr>
+      <th scope="row">Average rating (5 is best)</th>
+      <td>{{resjson.average_rating}}</td>
+    </tr><tr>
+      <th scope="row">Number of ratings</th>
+      <td>{{resjson.work_ratings_count}}</td>
+    </tr>
+  </tbody>
+</table>
+<table class="table">
+{% if reviews %}
+<tbody>
+  {% for review in reviews %}
+  <tr>
+    <th scope="row">Review by "{{review.username}}"</th>
+    <td>{{review.review}}</td>
+  </tr>
+  {% endfor %}
+</tbody>
+{% else %}
+<h4>No reviews so far</h4>
+{% endif %}
+</table>
+</div>
+<div class=container>
+  {% if switch==0 %}
+  <h3>Write a review for this book :)</h3>
+  <form action="{{info.isbn}}" method="POST">
+    <div class="form-group">
+      <input type="text" class="form-control" name="rev" placeholder="Your comment">
+    </div>
+    <div class="form-group">
+      <input type=submit style="background-color: #f4aa42" class="btn">
+    </div>
+  </form>
+  {% else %}
+  <h3> Thanks for having submitted a review :)</h3>
+  {% endif %}
+</div>
+{% endblock %}

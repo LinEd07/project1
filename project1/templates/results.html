@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Query results
+{% endblock %}
+
+{% block body %}
+<div class=container>
+  <br><h3>Results</h3><br>
+  <h4>Click on any title to see more information</h4><br>
+  <ul>
+    {% for title in titles %}
+      <a href="books/{{title.isbn}}"<li>{{title.title}}</li></a><br>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

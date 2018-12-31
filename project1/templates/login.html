@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block body %}
+<div class=container>
+  <br><h3>Login</h3><br>
+  <form action="{{url_for('login')}}" method="POST">
+    <div class="form-group">
+      <input type="text" class="form-control" name="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <input type=submit class="btn" style="background-color: #f4aa42" value="Log in">
+    </div>
+  </form>
+</div>
+{% endblock %}

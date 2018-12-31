@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search for a book
+{% endblock %}
+
+{% block body %}
+<div class=container>
+  <br><h3>Search for book</h3><br>
+  <form action="{{url_for('index')}}" method="POST">
+    <div class="form-group">
+      <input type=text class="form-control" placeholder="ISBN, title or author" name=query>
+    </div>
+    <div class="form-group">
+      <input type=submit style="background-color: #f4aa42" class="btn">
+    </div>
+  </form>
+</div>
+{% endblock %}
